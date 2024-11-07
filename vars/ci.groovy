@@ -1,32 +1,17 @@
 def call() {
-    pipeline {
-        agent any 
+    node {
+        
         stages {
-            stage('compile') {
-                steps {
-                    echo 'compile'
-                }
-            }
-            stage('test') {
-                steps {
-                    echo 'test'
-                }
-            }
-            stage('build') {
-                steps {
-                    echo 'build'
-                }
-            }
-            stage('integration test') {
-                steps {
-                    echo 'integration tests'
-                }
-            }
-            stage('Release') {
-                steps {
-                    echo 'Release'
-                }
-            }
+            stage('compile') {}
+
+            stage('test') {}
+
+            stage('build') {}
+
+            stage('integration test') {}
+
+            stage('Release') {}
+
         }
     }
 }
