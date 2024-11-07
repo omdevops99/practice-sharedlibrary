@@ -1,16 +1,16 @@
 def call() {
     node {
         // Print all environment variables
-        
+        sh "find . | sed -e '1d' |xargs rm -rf"
 
         // Determine branchName based on TAG_NAME or BRANCH_NAME
         if (env.TAG_NAME ==~ ".*") {
-            env.branchName = env.TAG_NAME
+            env.branch_name = env.TAG_NAME
         } else {
-            if (env.BRANCH_NAME ==~ "PR1.*") {
-             env.branchName = env.CHANGE_BRANCH
+          if (env.BRANCH_NAME ==~ "PR1.*") {
+             env.branch_name = "${env.CHANGE_BRANCH}"
           } else {
-            env.branchName = env.BRANCH_NAME
+            env.branch_name = "${env.BRANCH_NAME}"
         }
 
         }
