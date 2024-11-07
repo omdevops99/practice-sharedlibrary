@@ -1,32 +1,14 @@
 def call() {
     pipeline {
-        agent any
+        agent { 
+            docker { image 'maven:3.9.3-eclipse-temurin-17' }
+        }
         stages {
-            stage ('compile'){
+            stage('Build') {
                 steps {
-                    echo 'compile'
-                }
-            }
-
-            stage('test cases'){
-                steps {
-                    echo 'test cases'
-                }
-            }
-
-            stage('Build'){
-                steps {
-                    echo 'Build'
-                }
-            }
-
-            stage('Release'){
-                steps {
-                    echo 'Release'
+                    sh 'mvn -B clean verify'
                 }
             }
         }
-
-
     }
 }
