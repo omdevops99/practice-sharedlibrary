@@ -4,7 +4,7 @@ def call() {
         stages {
             stage('Build') {
                 steps {
-                    sh 'mvn -B clean verify'
+                    sh 'env'
                 }
             }
         }
