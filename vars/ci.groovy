@@ -7,9 +7,13 @@ def call() {
         if (env.TAG_NAME ==~ ".*") {
             env.branchName = env.TAG_NAME
         } else {
+            if (env.BRANCH_NAME ==~ "PR1.*") {
+             env.branchName = env.CHANGE_BRANCH
+          } else {
             env.branchName = env.BRANCH_NAME
         }
-        sh 'env'
+
+        }
         // Code checkout stage
         stage('code checkout') {
             checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
