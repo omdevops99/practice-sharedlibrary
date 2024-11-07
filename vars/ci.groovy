@@ -1,13 +1,13 @@
 def call() {
     node {
         sh 'env'
-        if(BRANCH_NAME == "main"){ 
+        if(env.BRANCH_NAME == "main"){ 
             stage('compile'){}
             stage('build') {}
-        } else if(BRANCH_NAME ==~ "PR.*") {
+        } else if(env.BRANCH_NAME ==~ "PR.*") {
           stage('test') {}
           stage('Release') {}
-        } else if(TAG_NAME ==~ ".*") {
+        } else if(env.TAG_NAME ==~ ".*") {
           stage('compile'){}
           stage('test') {}
         } else {
