@@ -1,8 +1,6 @@
 def call() {
     pipeline {
-        agent { 
-            docker { image 'maven:3.9.3-eclipse-temurin-17' }
-        }
+        agent 
         stages {
             stage('Build') {
                 steps {
