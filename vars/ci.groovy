@@ -1,17 +1,15 @@
 def call() {
     node {
-        
-        stages {
-            stage('compile') {}
+        stage('compile') {}
 
-            stage('test') {}
+        stage('test') {}
 
-            stage('build') {}
+        stage('build') {}
 
-            stage('integration test') {}
+        stage('integration test') {}
 
-            stage('Release') {}
+        stage('Release') {}
 
         }
     }
-}
+
