@@ -1,15 +1,25 @@
 def call() {
     node {
-        stage('compile') {}
+        sh 'env'
+        if(BRANCH_NAME == "main"){
 
-        stage('test') {}
+            stage('compile'){}
+             stage('build') {}
 
-        stage('build') {}
+        }
+        // else:
 
-        stage('integration test') {}
+        // stage('compile'){}
 
-        stage('Release') {}
+        // stage('test') {}
+
+        // stage('build') {}
+
+        // stage('integration test') {}
+
+        // stage('Release') {}
 
         }
     }
+
 
