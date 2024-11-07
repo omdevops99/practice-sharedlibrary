@@ -2,17 +2,35 @@ def call() {
   pipeline {
     agent any 
     stages{
-        stage('example'){
+        stage('compile'){
             steps{
-                echo 'Hello world'
+                echo 'compile'
             }
         }
     }
-    post {
-        always {
-            echo 'I will always say Hello again !'
+    stage('test'){
+            steps{
+                echo 'test'
+            }
         }
-    }
+
+    stage('build'){
+            steps{
+                echo 'build'
+            }
+        }    
+
+    stage('integration test'){
+            steps{
+                echo 'integration tests'
+            }
+        }    
+
+    stage('Release'){
+            steps{
+                echo 'Release'
+            }
+        }        
   }
 
 }
