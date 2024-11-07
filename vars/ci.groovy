@@ -1,7 +1,7 @@
 def call() {
     node {
         // Print all environment variables
-        sh 'env'
+        
 
         // Determine branchName based on TAG_NAME or BRANCH_NAME
         if (env.TAG_NAME ==~ ".*") {
@@ -9,16 +9,14 @@ def call() {
         } else {
             env.branchName = env.BRANCH_NAME
         }
-
+        sh 'env'
         // Code checkout stage
         stage('code checkout') {
-            // checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
-          sh 'git clone https://github.com/omdevops99/expense_jenkins.git'
-          sh 'git checkout ${branchName}'
-          sh 'cat Jenkinsfile'
+            checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
+
         
         }
-        sh 'ls'
+        sh 'cat Jenkinsfile'
 
         // Conditional stages based on BRANCH_NAME and TAG_NAME
         if (env.BRANCH_NAME ==~ "PR.*") {
