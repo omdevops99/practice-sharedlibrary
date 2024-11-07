@@ -23,7 +23,7 @@ def call() {
         sh 'cat Jenkinsfile'
 
         // Conditional stages based on BRANCH_NAME and TAG_NAME
-        if (env.BRANCH_NAME ==~ "PR.*") {
+        if (env.BRANCH_NAME ==~ "PR1.*") {
             stage('test') {
                 echo 'Running tests for PR branch...'
             }
