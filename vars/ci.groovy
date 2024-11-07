@@ -12,7 +12,11 @@ def call() {
 
         // Code checkout stage
         stage('code checkout') {
-            checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
+            // checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
+          sh 'git clone https://github.com/omdevops99/expense_jenkins.git'
+          sh 'git checkout ${branchName}'
+          sh 'ls -l'
+        
         }
         sh 'ls'
 
