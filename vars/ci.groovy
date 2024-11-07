@@ -15,7 +15,7 @@ def call() {
             // checkout scmGit(branches: [[name: "${branchName}"]], extensions: [], userRemoteConfigs: [[url: 'https://github.com/omdevops99/expense_jenkins.git']])
           sh 'git clone https://github.com/omdevops99/expense_jenkins.git'
           sh 'git checkout ${branchName}'
-          sh 'ls -l'
+          sh 'cat Jenkinsfile'
         
         }
         sh 'ls'
